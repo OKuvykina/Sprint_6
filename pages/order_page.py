@@ -1,8 +1,6 @@
 import allure
 from locators.order_page_locators import OrderLocators
 from pages.base_page import BasePage
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 
 # класс страницы заказов
@@ -38,12 +36,11 @@ class OrderPage(BasePage):
         formatted_locator = self.format_locators(OrderLocators.STATION, station)
         self.scroll_to_the_end_question(OrderLocators.STATION_LOCATOR_TO_SCROLL)
         self.click_to_element(formatted_locator)
-        (WebDriverWait(self.driver, 10).until(
-            expected_conditions.visibility_of_element_located(OrderLocators.TELEPHONE)))
+        self.wait_element(OrderLocators.TELEPHONE)
 
+    @allure.step('выбираем срок аренды')
     def click_to_rental_period(self, period):
         self.click_to_element(OrderLocators.RENTAL_PERIOD)
-        # self.click_to_element(OrderLocators.RENTAL_PERIOD_LOCATOR_TO_SCROLL)   то работает если передавать конкретное значение
         formatted_locator = self.format_locators(OrderLocators.CHECK_RENTAL_PERIOD, period)
         self.scroll_to_the_end_question(OrderLocators.RENTAL_PERIOD_LOCATOR_TO_SCROLL)
         self.click_to_element(formatted_locator)

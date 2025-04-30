@@ -11,14 +11,12 @@ class TestTrafficPage:
     def test_traffic_dzen(self, main_page, driver):
 
         traffic_page = TrafficPage(driver)
-        traffic_page.click_to_logo_yandex()
-        dzen_current = traffic_page.find_element_with_wait(TrafficLocators.MAIN_DZEN).text
+        dzen_current = traffic_page.click_to_logo_yandex()
         assert dzen_current == 'Главная'
 
     @allure.title('Тест на переход по кнопке Самокат на главную страницу Самокат')
     def test_traffic_scooter(self, main_page, driver):
 
         traffic_page = TrafficPage(driver)
-        traffic_page.click_to_logo_scooter()
-        title_current = traffic_page.find_element_with_wait(TrafficLocators.MAIN_TITLE).text
+        title_current = traffic_page.click_to_logo_scooter()
         assert title_current == Parameters.TITLE_EXPECTED

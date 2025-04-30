@@ -4,6 +4,11 @@ from selenium.webdriver.common.by import By
 
 class OrderLocators:
 
+    # кнопка Заказа сверху
+    BUTTON_ORDER_UP = (By.XPATH, "//*[contains(@class, 'Button_Button') and text()='Заказать']")
+    # кнопка Заказа снизу
+    BUTTON_ORDER_DOWN = (By.XPATH, "//*[contains(@class, 'Button_Middle') and text()='Заказать']")
+
     #первая форма заполнения
     # заголовок Для кого самокат
     TITLE_ON_ORDER_PAGE = (By.XPATH, "//*[contains(@class, 'Order_Header') and text()='Для кого самокат']")

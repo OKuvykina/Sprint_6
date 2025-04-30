@@ -2,7 +2,7 @@ import allure
 import pytest
 from tests.conftest import main_page
 from data import Parameters
-from locators.main_page_locators import MainLocators
+from locators.order_page_locators import OrderLocators
 from pages.order_page import OrderPage
 
 
@@ -11,8 +11,8 @@ class TestOrderPage:
     @pytest.mark.parametrize(
         'locator, order_data',
         [
-            (MainLocators.BUTTON_UP, Parameters.ORDER_DATA_1),
-            (MainLocators.BUTTON_DOWN, Parameters.ORDER_DATA_2)
+            (OrderLocators.BUTTON_ORDER_UP, Parameters.ORDER_DATA_1),
+            (OrderLocators.BUTTON_ORDER_DOWN, Parameters.ORDER_DATA_2)
 
         ]
     )
